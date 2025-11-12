@@ -1,0 +1,11 @@
+import os, shutil
+
+path = "C:/Users/YourName/Downloads"
+for file in os.listdir(path):
+    name, ext = os.path.splitext(file)
+    ext = ext[1:]
+    if ext:
+        folder = os.path.join(path, ext)
+        os.makedirs(folder, exist_ok=True)
+        shutil.move(os.path.join(path, file), os.path.join(folder, file))
+print("Files organized successfully!")
